@@ -5,10 +5,11 @@ https://github.com/mullerhai/sshjumphive
 
 Note: this repo is not supported. License is MIT.
 
-.. |logo| image::  ssh-jump-hive.jpg
-.. |logo| image::  ./ssh-jump-hive.jpg
-.. |logo| image:: ssh_jump_hive.jpg
-.. |logo| image:: https://github.com/mullerhai/sshjumphive/blob/master/ssh_jump_hive.jpg
+.. image::  ssh-jump-hive.jpg
+.. image::  ./ssh-jump-hive.jpg
+.. image:: ssh_jump_hive.jpg
+.. image:: https://github.com/mullerhai/sshjumphive/blob/master/ssh_jump_hive.jpg
+
 .. contents::
 
 
