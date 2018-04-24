@@ -5,9 +5,11 @@ https://github.com/mullerhai/sshjumphive
 
 Note: this repo is not supported. License is MIT.
 
+.. |logo| image::  ssh-jump-hive.jpg
+.. |logo| image::  ./ssh-jump-hive.jpg
 .. contents::
 
-.. |logo| image::  ssh-jump-hive.jpg
+
 Object types
 ------------
 
