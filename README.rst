@@ -7,6 +7,7 @@ Note: this repo is not supported. License is MIT.
 
 .. contents::
 
+.. |logo| image::  ssh-jump-hive.jpg
 Object types
 ------------
 
