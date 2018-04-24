@@ -1,33 +1,45 @@
-#!/usr/bin/env python
-# coding=utf-8
+import codecs
+import os
 
 from setuptools import setup, find_packages
 
+# See this web page for explanations:
+# https://hynek.me/articles/sharing-your-labor-of-love-pypi-quick-and-dirty/
+PACKAGES = ["ssh_jump_hive"]
+KEYWORDS = ["hive", "ssh-tunnel", "hfds", "machine learning"]
+CLASSIFIERS = [
+    "Programming Language :: Python :: 2.7",
+    "Programming Language :: Python :: 3.4",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Topic :: Scientific/Engineering",
+]
+# Project root
+ROOT = os.path.abspath(os.path.dirname(__file__))
+
 setup(
-    name='ssh_jump_hive',
-    version='0.2.6',
-    description=(
-        'ssh_jump_hive is a tools could  jump the jump machine  to connect hive get hive data to pandas dataframe'
-    ),
-    long_description=open('README.rst').read(),
-    author='mullerhai',
-    author_email='hai710459649@foxmail.com',
-    maintainer='muller helen',
-    maintainer_email='hai710459649@foxmail.com',
-    license='BSD License',
-    packages=find_packages(),
-    platforms=["all"],
+    name="ssh_jump_hive",
+    description="ssh_jump_hive is a tools could  jump the jump machine  to connect hive get hive data to pandas dataframe",
+    license="Apache 2.0",
     url='https://github.com/mullerhai/sshjumphive',
-    classifiers=[
-        'Development Status :: 4 - Beta',
-        'Operating System :: OS Independent',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: Implementation',
-        'Programming Language :: Python :: 3.6',
-        'Topic :: Software Development :: Libraries'
-    ],
+    version="0.2.8",
+    author="mullerhai",
+    author_email="hai710459649@foxmail.com",
+    maintainer="muller helen",
+    maintainer_email="hai710459649@foxmail.com",
+    long_description=open('README.rst').read(),
+    keywords=KEYWORDS,
+    packages=find_packages(),
+    classifiers=CLASSIFIERS,
+    zip_safe=False,
+    platforms=["all"],
+    include_package_data=True,
     install_requires=[
         'pandas>=0.20.3',
         'PyHive>=0.5.1',
@@ -42,3 +54,5 @@ setup(
 
     ],
 )
+
+
