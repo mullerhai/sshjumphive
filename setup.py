@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='ssh_jump_hive',
-    version='0.2.3',
+    version='0.2.6',
     description=(
         'ssh_jump_hive is a tools could  jump the jump machine  to connect hive get hive data to pandas dataframe'
     ),

@@ -78,7 +78,15 @@ class hive_client:
     params=paramstemp[:-1]
     hsql=hsql_part+params+');'
     logger.info(msg="exec hsql : %s" % hsql)
-    cursor.excute(hsql)
+    cursor.execute(hsql)
+
+  def queryby_hsql_df(self,conn,hsql):
+    logger.info(msg="exec hsql : %s" % hsql)
+    cursor = conn.cursor()
+    cursor.execute(hsql)
+    # dataframe=pd.DataFrame(cursor.fetchall())
+    dataframe = pd.read_sql(hsql, conn)
+    return dataframe
 
 logger = logging.getLogger(
     name=__name__,
@@ -339,3 +347,48 @@ class Jump_Tunnel_HIVE:
        conn = hive_cli.connhive(database, auth)
        pd_dataframe = hive_cli.query_selectFileds_Dataframe(conn, table, query_fileds_list, partions_param_dict, query_limit)
        return pd_dataframe
+  def get_JumpTunnel_hsql_df(self,hsql, database='fkdb', auth='LDAP'):
+    client = self.jump_connect()
+    with  SSH_Tunnel(
+            paramiko_session=client,
+            remote_host=self.tunnelhost,
+            remote_port=self.tunnelAPPport,
+            bind_address_and_port=(self.localhost, self.localBindport),
+    ) as tunnel:
+      logger.info(msg="the ssh tunnel  for jump server %s" % tunnel)
+      hive_cli = hive_client(self.localhost, self.hiveusername, self.hivepassword, self.localBindport)
+      conn = hive_cli.connhive(database, auth)
+      pd_dataframe=hive_cli.queryby_hsql_df(conn,hsql)
+      return  pd_dataframe
+
+  def get_JumpTunnel_table_partitions_df(self,table,param_dict,limit=None, database='fkdb', auth='LDAP'):
+    client = self.jump_connect()
+    with  SSH_Tunnel(
+            paramiko_session=client,
+            remote_host=self.tunnelhost,
+            remote_port=self.tunnelAPPport,
+            bind_address_and_port=(self.localhost, self.localBindport),
+    ) as tunnel:
+      logger.info(msg="the ssh tunnel  for jump server %s" % tunnel)
+      hive_cli = hive_client(self.localhost, self.hiveusername, self.hivepassword, self.localBindport)
+      conn = hive_cli.connhive(database, auth)
+      pd_dataframe = hive_cli.query_AllFileds_Dataframe(conn,table,param_dict,limit)
+      return pd_dataframe
+
+  def alter_table_Tunnel_by_hsql(self,hsql, database='fkdb', auth='LDAP'):
+    client = self.jump_connect()
+    with  SSH_Tunnel(
+            paramiko_session=client,
+            remote_host=self.tunnelhost,
+            remote_port=self.tunnelAPPport,
+            bind_address_and_port=(self.localhost, self.localBindport),
+    ) as tunnel:
+      logger.info(msg="the ssh tunnel  for jump server %s" % tunnel)
+      hive_cli = hive_client(self.localhost, self.hiveusername, self.hivepassword, self.localBindport)
+      conn = hive_cli.connhive(database, auth)
+      cursor=conn.cursor()
+      try:
+        cursor.execute(hsql)
+        logger.info(msg="hive cursor exec  successfully for : [ %s ]"%hsql)
+      except:
+        logger.error(msg="hive cursor  exec failed for [ %s ]"%hsql)
