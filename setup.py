@@ -3,9 +3,10 @@ import os
 
 from setuptools import setup, find_packages
 
+from jumps import __version__ as version
 # See this web page for explanations:
 # https://hynek.me/articles/sharing-your-labor-of-love-pypi-quick-and-dirty/
-PACKAGES = ["ssh_jump_hive"]
+PACKAGES = ["jumps",]
 KEYWORDS = ["hive", "ssh-tunnel", "hfds", "machine learning"]
 CLASSIFIERS = [
     "Programming Language :: Python :: 2.7",
@@ -24,11 +25,11 @@ CLASSIFIERS = [
 ROOT = os.path.abspath(os.path.dirname(__file__))
 
 setup(
-    name="ssh_jump_hive",
+    name="ssh-jump_hive",
     description="ssh_jump_hive is a tools could  jump the jump machine  to connect hive get hive data to pandas dataframe",
     license="Apache 2.0",
     url='https://github.com/mullerhai/sshjumphive',
-    version="0.2.8",
+    version=version,
     author="mullerhai",
     author_email="hai710459649@foxmail.com",
     maintainer="muller helen",
