@@ -22,17 +22,18 @@ pip  install -U ssh-jump-hive
 Use in Unix System Terminal[centos macos  ubuntu]
 ------------
 
-:$> jumps  
-:parameter:
+>>> jumps 
+    - default param
+: parameter:
     - @click.option('-jh', '--jumphost', default="***", help='Jump Gateway Server host 跳板机ssh 主机名, 默认117.48.195.186')
     -  @click.option('-jp', '--jumpport', default=2222, help='Jump Gateway Server port跳板机ssh登录端口号, 默认2222')
     -   @click.option('-ju', '--jumpuser', default='dm', help='Jump Gateway Server login user 跳板机 ssh登录用户名')
     -   @click.option('-jpd', '--jumppwd', default="***",  help='Jump Gateway Server login user password 跳板机登录用户密码')
-@click.option('-th', '--tunnelhost', default='172.16.16.32', help='ssh-tunnel 隧道 host ')
-@click.option('-tp', '--tunnelappport', default=10000, help='ssh-tunnel Application port隧道 目标程序的端口号 默认为 hive 10000 ')
-@click.option('-lh', '--localhost', default='127.0.0.1', help='localhost本机 host ,默认127.0.0.1 ')
-@click.option('-lp', '--localbindport', default="4230", help='localbindport 本机 被绑定的端口号')
-@click.option('-dt', '--daemonsecond', default="21600", help='ssh_tunnel_daemon_session_hold_on_second six hours, ssh 隧道 后台线程 保持时间 默认为六小时')
+    -   @click.option('-th', '--tunnelhost', default='172.16.16.32', help='ssh-tunnel 隧道 host ')
+    -   @click.option('-tp', '--tunnelappport', default=10000, help='ssh-tunnel Application port隧道 目标程序的端口号 默认为 hive 10000 ')
+    -   @click.option('-lh', '--localhost', default='127.0.0.1', help='localhost本机 host ,默认127.0.0.1 ')
+    -   @click.option('-lp', '--localbindport', default="4230", help='localbindport 本机 被绑定的端口号')
+    -   @click.option('-dt', '--daemonsecond', default="21600", help='ssh_tunnel_daemon_session_hold_on_second six hours, ssh 隧道 后台线程 保持时间 默认为六小时')
 
 
 Object types
@@ -55,6 +56,7 @@ for query hive data you need to know params [ table, query_fileds_list, partions
 
 if your hive server has  jump server separete， you need do  like this
 [
+::
     from ssh_jump_hive import Jump_Tunnel_HIVE
     import pandas as pd
     ## get hive_tunnel_client_session
@@ -78,8 +80,9 @@ if your hive server has  jump server separete， you need do  like this
       jump = Jump_Tunnel_HIVE(jumphost, jumpport, jumpuser, jumppwd, tunnelhost, tunnelhiveport, localhost, localbindport,
         username, password)
       return jump
-    ## query some fileds by table name and  partitions params
-    def demo1():
+ 
+ ## query some fileds by table name and  partitions params
+::    def demo1():
         table = 'tab_client_label'
         partions_param_dict = {'client_nmbr': 'AA75', 'batch': 'p1'}
         query_fileds_list = ['gid', 'realname', 'card']
@@ -88,14 +91,14 @@ if your hive server has  jump server separete， you need do  like this
         df2=jump.get_JumpTunnel_df(table,partions_param_dict,query_fileds_list,querylimit)
         return df2
     ## query all fileds by table name and partitions params
-    def demo2():
+::    def demo2():
       table = 'tab_client_label'
       partions_param_dict = {'client_nmbr': 'AA75', 'batch': 'p1'}
       jump =gethive()
       df2 = jump.get_JumpTunnel_table_partitions_df(table,partions_param_dict,1000)
       return df2
     ## use  hsql to query data
-    def demo3():
+::    def demo3():
       jump = gethive()
       hsql="select * from fkdb.tab_client_label where  client_nmbr= 'AA75' and batch= 'p1' limit 500"
       df2=jump.get_JumpTunnel_hsql_df(hsql)
