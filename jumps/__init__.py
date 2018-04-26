@@ -9,8 +9,8 @@ else:
     PY2 = True
 
 
-__version__ = '0.3.0'
-__all__ = ['hive_client', 'Jump_Tunnel_HIVE', 'SSH_Tunnel']
+__version__ = '0.3.3'
+__all__ = ['hive_client','Jump_Tunnel', 'ftps_client','Jump_Tunnel_HIVE', 'SSH_Tunnel']
 
 
 # Initialize logger.

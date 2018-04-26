@@ -52,8 +52,14 @@ setup(
         'hdfs>=2.1.0',
         'sklearn-pandas>=1.6.0',
         'scikit-learn>=0.19.1',
+        'click>=6.7',
 
     ],
+    entry_points={
+        'console_scripts': [
+            'jumps = jumps.jump_terminal:main'
+        ]
+    },
 )
 
 
