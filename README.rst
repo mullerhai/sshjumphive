@@ -6,10 +6,33 @@ https://github.com/mullerhai/sshjumphive
 Note: this repo is not supported. License is MIT.
 
 
-.. image:: ssh_jump_hive.jpg
-.. image:: https://github.com/mullerhai/sshjumphive/blob/master/ssh_jump_hive.jpg
+.. 
+
+    image:: ssh_jump_hive.jpg
+.. image:: https://github.com/mullerhai/sshjumphive/blob/master/logo.jpeg
 
 .. contents::
+
+Install 
+------------
+
+pip  install -U ssh-jump-hive
+
+
+Use in Unix System Terminal[centos macos  ubuntu]
+------------
+
+$> jumps  
+parameter:
+@click.option('-jh', '--jumphost', default="***", help='Jump Gateway Server host 跳板机ssh 主机名, 默认117.48.195.186')
+@click.option('-jp', '--jumpport', default=2222, help='Jump Gateway Server port跳板机ssh登录端口号, 默认2222')
+@click.option('-ju', '--jumpuser', default='dm', help='Jump Gateway Server login user 跳板机 ssh登录用户名')
+@click.option('-jpd', '--jumppwd', default="***",  help='Jump Gateway Server login user password 跳板机登录用户密码')
+@click.option('-th', '--tunnelhost', default='172.16.16.32', help='ssh-tunnel 隧道 host ')
+@click.option('-tp', '--tunnelappport', default=10000, help='ssh-tunnel Application port隧道 目标程序的端口号 默认为 hive 10000 ')
+@click.option('-lh', '--localhost', default='127.0.0.1', help='localhost本机 host ,默认127.0.0.1 ')
+@click.option('-lp', '--localbindport', default="4230", help='localbindport 本机 被绑定的端口号')
+@click.option('-dt', '--daemonsecond', default="21600", help='ssh_tunnel_daemon_session_hold_on_second six hours, ssh 隧道 后台线程 保持时间 默认为六小时')
 
 
 Object types
