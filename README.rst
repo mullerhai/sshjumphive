@@ -22,7 +22,7 @@ pip  install -U ssh-jump-hive
 Use in Unix System Terminal[centos macos  ubuntu]
 ------------
 
->>> jumps 
+: jumps 
     - default param
 : parameter:
     - @click.option('-jh', '--jumphost', default="***", help='Jump Gateway Server host 跳板机ssh 主机名, 默认117.48.195.186')
@@ -82,7 +82,7 @@ if your hive server has  jump server separete， you need do  like this
       return jump
  
  ## query some fileds by table name and  partitions params
-::    def demo1():
+ def demo1():
         table = 'tab_client_label'
         partions_param_dict = {'client_nmbr': 'AA75', 'batch': 'p1'}
         query_fileds_list = ['gid', 'realname', 'card']
@@ -91,14 +91,14 @@ if your hive server has  jump server separete， you need do  like this
         df2=jump.get_JumpTunnel_df(table,partions_param_dict,query_fileds_list,querylimit)
         return df2
     ## query all fileds by table name and partitions params
-::    def demo2():
+    def demo2():
       table = 'tab_client_label'
       partions_param_dict = {'client_nmbr': 'AA75', 'batch': 'p1'}
       jump =gethive()
       df2 = jump.get_JumpTunnel_table_partitions_df(table,partions_param_dict,1000)
       return df2
     ## use  hsql to query data
-::    def demo3():
+    def demo3():
       jump = gethive()
       hsql="select * from fkdb.tab_client_label where  client_nmbr= 'AA75' and batch= 'p1' limit 500"
       df2=jump.get_JumpTunnel_hsql_df(hsql)
