@@ -13,13 +13,13 @@ logger = logging.getLogger(
 class Jump_Tunnel:
 
   def __init__(self,jumphost,jumpport,jumpuser,jumppwd,tunnelhost,tunnelAPPport,localhost,localbindport):
-    self.jumphost=jumphost
+    self.jumphost=jumphost.strip()
     self.jumpport=jumpport
-    self.jumpuser=jumpuser
-    self.jumppwd=jumppwd
+    self.jumpuser=jumpuser.strip()
+    self.jumppwd=jumppwd.strip()
     self.tunnelhost=tunnelhost
     self.tunnelAPPport=tunnelAPPport
-    self.localhost=localhost
+    self.localhost=localhost.strip()
     self.localBindport=localbindport
 
   def  jump_connect(self):

@@ -17,16 +17,16 @@ class Jump_Tunnel_HIVE:
   logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
   logger = logging.getLogger(__name__)
   def __init__(self,jumphost,jumpport,jumpuser,jumppwd,tunnelhost,tunnelAPPport,localhost,localbindport,hiveusername, hivepassword):
-    self.jumphost=jumphost
+    self.jumphost=jumphost.strip()
     self.jumpport=jumpport
-    self.jumpuser=jumpuser
-    self.jumppwd=jumppwd
-    self.tunnelhost=tunnelhost
+    self.jumpuser=jumpuser.strip()
+    self.jumppwd=jumppwd.strip()
+    self.tunnelhost=tunnelhost.strip()
     self.tunnelAPPport=tunnelAPPport
-    self.localhost=localhost
+    self.localhost=localhost.strip()
     self.localBindport=localbindport
-    self.hiveusername=hiveusername
-    self.hivepassword=hivepassword
+    self.hiveusername=hiveusername.strip()
+    self.hivepassword=hivepassword.strip()
   def  jump_connect(self):
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(

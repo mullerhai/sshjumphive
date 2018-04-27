@@ -6,12 +6,12 @@ from jumps.hive_client import hive_client
 
 username = 'zhuzheng'
 password = "abc123."
-localhost=""
-localbindport=""
+localhost="127.0.0.1"
+localbindport=3560
 cli = hive_client(localhost, username, password, localbindport)
 conn = cli.connhive()
 table = 'tab_client_label'
-partions_param_dict = {'client_nmbr': 'AA75', 'batch': 'p1'}
+partions_param_dict = {'client_nmbr': 'AA74', 'batch': 'p1'}
 query_fileds_list = ['gid', 'realname', 'card']
 querylimit = 1000
 df = cli.query_selectFileds_Dataframe(conn, table, query_fileds_list, partions_param_dict, querylimit)

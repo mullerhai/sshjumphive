@@ -67,7 +67,7 @@ def parse_command(jumphost,jumpport,jumpuser,jumppwd,tunnelhost,tunnelappport,lo
           jumphost,jumpport,jumpuser,jumppwd,tunnelhost,tunnelappport,localhost,localbindport))
 
     logger.info("环境检查完毕,正在开启 start ssh_tunnel for you(请等待15s~30s)")
-    start_jump_tunnel_client(jumphost,int(jumpport),jumpuser,jumppwd,tunnelhost,int(tunnelappport),localhost,int(localbindport),int(daemonsecond))
+    start_jump_tunnel_client(jumphost.strip(),int(jumpport.strip()),jumpuser.strip(),jumppwd.strip(),tunnelhost.strip(),int(tunnelappport.strip()),localhost.strip(),int(localbindport.strip()),int(daemonsecond.strip()))
 
 
 def start_jump_tunnel_client(jumphost,jumpport,jumpuser,jumppwd,tunnelhost,tunnelAPPport,localhost,localbindport,daemonsecond):

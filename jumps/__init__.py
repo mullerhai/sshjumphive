@@ -9,7 +9,7 @@ else:
     PY2 = True
 
 
-__version__ = '0.3.5'
+__version__ = '0.3.6'
 __all__ = ['hive_client','Jump_Tunnel', 'ftps_client','Jump_Tunnel_HIVE', 'SSH_Tunnel']
 
 
