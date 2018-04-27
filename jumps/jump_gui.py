@@ -23,13 +23,8 @@ class JumpTunnel(QWidget):
 
   def __init__(self):
     super().__init__()
-
-    self.my_UI()
-
-
-  def my_UI(self):
-
-
+    self.my_UI(True)
+  def my_UI(self,test=False):
     jhLabel=QLabel("JumpHost:")
     jpLabel=QLabel("JumpPort:")
     juLable=QLabel("JumpUser:")
@@ -40,12 +35,16 @@ class JumpTunnel(QWidget):
     lpLabel=QLabel("LocalPort:")
     gitLabel = QLabel("GithubRepo:")
     dtLabel=QLabel("DaemonSecond:")
-
-    self.jumpHost=QLineEdit("117.48.195.186")
-    self.jumpPort=QLineEdit("2222")
-    self.jumpUser=QLineEdit("dm")
-    self.jumpPwd=QLineEdit("Vts^pztbvE339@Rw")
-    self.tunnelHost=QLineEdit("172.16.16.32")
+    if test==True:
+      self.jumpHost=QLineEdit("117.48.195.186")
+      self.jumpPwd=QLineEdit("Vts^pztbvE339@Rw")
+      self.tunnelHost=QLineEdit("172.16.16.32")
+    else:
+      self.jumpHost = QLineEdit()
+      self.jumpPwd = QLineEdit()
+      self.tunnelHost = QLineEdit()
+    self.jumpPort = QLineEdit("2222")
+    self.jumpUser = QLineEdit("dm")
     self.tunnelPort=QLineEdit("10000")
     self.localHost=QLineEdit("127.0.0.1")
     self.localPort=QLineEdit("3560")
