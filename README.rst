@@ -9,14 +9,20 @@ Note: this repo is not supported. License is MIT.
 .. 
 
     image:: ssh_jump_hive.jpg
-.. image:: https://github.com/mullerhai/sshjumphive/blob/master/logo.jpeg
+.. image:: https://github.com/mullerhai/sshjumphive/blob/master/img/logo.jpeg
 
 .. contents::
 
-Install 
+Install [sorry Mircosoft Windows  System  cannot use it]
 ------------
+python Version >= 3.5
+sasl>=0.2.1
+thrift>=0.11.0
+thrift-sasl>=0.3.0
+paramiko>=2.4.1
+selectors>=0.0.14
 
-pip  install -U ssh-jump-hive
+: pip  install -U ssh-jump-hive [Now Version is 0.3.5]
 
 
 Use in Unix System Terminal[centos macos  ubuntu]
@@ -35,7 +41,16 @@ Use in Unix System Terminal[centos macos  ubuntu]
     -   @click.option('-lp', '--localbindport', default="4230", help='localbindport 本机 被绑定的端口号')
     -   @click.option('-dt', '--daemonsecond', default="21600", help='ssh_tunnel_daemon_session_hold_on_second six hours, ssh 隧道 后台线程 保持时间 默认为六小时')
 
-.. image:: https://github.com/mullerhai/sshjumphive/blob/master/runshell.jpeg
+.. image:: https://github.com/mullerhai/sshjumphive/blob/master/img/runshell.jpeg
+
+
+Use in Unix System Terminal Run GUI[centos macos  ubuntu]
+------------
+: jumpgui
+    - you will see the  GUI like this
+.. image:: https://github.com/mullerhai/sshjumphive/blob/master/img/rungui.jpg
+
+
 Object types
 ------------
 
