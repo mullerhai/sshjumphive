@@ -36,6 +36,15 @@ Use in Unix System Terminal[centos macos  ubuntu]
     -   @click.option('-dt', '--daemonsecond', default="21600", help='ssh_tunnel_daemon_session_hold_on_second six hours, ssh 隧道 后台线程 保持时间 默认为六小时')
 
 .. image:: https://github.com/mullerhai/sshjumphive/blob/master/runshell.jpeg
+
+
+Use in Unix System Terminal Run GUI[centos macos  ubuntu]
+------------
+: jumpgui
+    - you will see the  GUI like this
+.. image:: https://github.com/mullerhai/sshjumphive/blob/master/img/rungui.jpg
+
+
 Object types
 ------------
 
