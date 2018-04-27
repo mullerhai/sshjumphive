@@ -15,14 +15,16 @@ Note: this repo is not supported. License is MIT.
 
 Install [sorry Mircosoft Windows  System  cannot use it]
 ------------
-python Version >= 3.5
-sasl>=0.2.1
-thrift>=0.11.0
-thrift-sasl>=0.3.0
-paramiko>=2.4.1
-selectors>=0.0.14
 
 : pip  install -U ssh-jump-hive [Now Version is 0.3.5]
+
+    - python Version >= 3.5
+    - sasl>=0.2.1
+    - thrift>=0.11.0
+    - thrift-sasl>=0.3.0
+    - paramiko>=2.4.1
+    - selectors>=0.0.14
+
 
 
 Use in Unix System Terminal[centos macos  ubuntu]
@@ -50,6 +52,11 @@ Use in Unix System Terminal Run GUI[centos macos  ubuntu]
     - you will see the  GUI like this
 .. image:: https://github.com/mullerhai/sshjumphive/blob/master/img/rungui.jpg
 
+
+If you Buy the  SSH_Tunnel for mac [maybe feel Expensive]
+------------
+
+.. image:: https://github.com/mullerhai/sshjumphive/blob/master/img/SSH_Tunnel_mac.jpg
 
 Object types
 ------------
