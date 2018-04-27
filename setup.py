@@ -57,7 +57,9 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'jumps = jumps.jump_terminal:main'
+            'jumps = jumps.jump_terminal:main',
+            'jumpgui = jumps.jump_gui:main'
+
         ]
     },
 )

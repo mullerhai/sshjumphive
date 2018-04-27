@@ -23,11 +23,11 @@ class Jump_Tunnel:
     self.localBindport=localbindport
 
   def  jump_connect(self):
-    client = paramiko.SSHClient()
-    client.set_missing_host_key_policy(
+    self.client = paramiko.SSHClient()
+    self.client.set_missing_host_key_policy(
       paramiko.AutoAddPolicy(),
     )
-    client.connect(
+    self.client.connect(
       hostname=self.jumphost,
       port=self.jumpport,
       username=self.jumpuser,
@@ -35,7 +35,7 @@ class Jump_Tunnel:
     )
     logger.info(msg="jump server info :{host: %s, port: %d,username: %s,password: %s}"%(self.jumphost,self.jumpport,self.jumpuser,self.jumppwd))
 
-    return client
+    return self.client
   def  jump_con_tunnel(self):
     client=self.jump_connect()
     tunnel=SSH_Tunnel(
@@ -46,7 +46,9 @@ class Jump_Tunnel:
     )
     logger.info(msg="the ssh tunnel  for jump server %s" %tunnel)
     return tunnel
-
+  def jump_break_conn_tunnel(self):
+    self.client.close()
+    logging.warn(msg="ssh_tunnel have been turn off")
   def  hold_ssh_tunnel_session(self,daemonSecond):
     jump_tunnel=Jump_Tunnel(self.jumphost,self.jumpport,self.jumpuser,self.jumppwd,self.tunnelhost,self.tunnelAPPport,self.localhost,self.localbindport)
     tunnel=jump_tunnel.jump_con_tunnel()

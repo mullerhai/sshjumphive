@@ -9,12 +9,12 @@ else:
     PY2 = True
 
 
-__version__ = '0.3.3'
+__version__ = '0.3.5'
 __all__ = ['hive_client','Jump_Tunnel', 'ftps_client','Jump_Tunnel_HIVE', 'SSH_Tunnel']
 
 
 # Initialize logger.
-logger = logging.getLogger("ssh-jump-hive")
+logger = logging.getLogger("SSH-Jump-Hive")
 logger.setLevel(logging.INFO)
 console_hdlr = logging.StreamHandler()
 console_hdlr.setLevel(logging.INFO)

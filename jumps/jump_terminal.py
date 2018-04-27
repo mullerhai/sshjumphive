@@ -25,12 +25,14 @@ APP_DESC = """
      ####   ####  #    #              ####   ####  #    # #                  #    # #   ##   ###### 
 
                         ---- A Terminal Tools For Jump Gateway Server
+                        ---- For Hive HDFS FTP FTPS Mysql Neo4j SPARK 
+                        ---- Redis MongoDB Hadoop Zookeeper Mpi Tomcat 
 
-    @author Muller Helen (hai710459749@gmail.com)
-                                    last_update 2018-04-26 18:54:59
+    @author Muller Helen (https://github.com/mullerhai/sshjumphive)
+                                    last_update 2018-04-27 11:33:59
 """
 
-logger = logging.getLogger('ssh-jump-hive')
+logger = logging.getLogger('ssh-jump-hive-shell')
 Process_HoldOn_DaemonSecond=21600 #六小时  six hours
 
 def check_setting_and_env():
